@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dan Tri Clone - HTML CSS Only</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container header-main">
+          <a href="#" class="brand-logo-text" aria-label="Dân trí">
+  <img src="./css/assets/logodantri.webp" alt="Logo Dân trí" style="height: 40px; object-fit: contain;">
+</a>
+
+          <div class="header-center">
+            <div class="city-block">
+              <strong>TP. Hồ Chí Minh</strong>
+              <span>Thứ 3, 16/06/2026</span>
+            </div>
+            <div class="weather-block">
+              <span class="weather-icon" aria-hidden="true">
+                <span class="cloud cloud-back"></span>
+                <span class="cloud cloud-front"></span>
+              </span>
+              <strong>32°C</strong>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <div class="quick-links quick-links-brands">
+              <a href="#" class="mini-brand fica-brand">
+                <img src="css/assets/icon/fica.jpg" alt="dti" >
+                <span>Fica</span>
+              </a>
+              <a href="#" class="mini-brand dti-brand">
+                 <img src="css/assets/icon/dti.svg" alt="dti" >
+                <span>DTiNews</span>
+              </a>
+                    <a href="#" class="mini-brand nvxh-brand">
+        <img src="css/assets/icon/N.svg" alt="Icon Nội vụ & Xã hội">
+        <span>Nội vụ &amp; Xã hội</span>
+      </a>  
+            </div>
+            <div class="header-icons" aria-label="Tiện ích">
+              <a href="#" class="icon-link" aria-label="Đăng nhập">
+                <span class="ui-icon user-icon"></span>
+                <span>Đăng nhập</span>
+              </a>
+              <button type="button" class="icon-button" aria-label="Tìm kiếm">
+                <span class="ui-icon search-icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <nav class="main-nav">
+        <div class="container nav-scroll">
+          <a href="#" class="nav-icon-link" aria-label="Trang chủ">
+            <span class="ui-icon home-icon"></span>
+          </a>
+          <a href="#" class="dt360-link">DT360</a>
+          <a href="#" class="active">Mới nhất</a>
+          <a href="#">Thế giới</a>
+          <a href="#">Thời sự</a>
+          <a href="#">Pháp luật</a>
+          <a href="#">Sức khỏe</a>
+          <a href="#">Đời sống</a>
+          <a href="#">Du lịch</a>
+          <a href="#">Kinh doanh</a>
+          <a href="#">Bất động sản</a>
+          <a href="#">Thể thao</a>
+          <a href="#">Giải trí</a>
+          <a href="#">Giáo dục</a>
+          <a href="#">Xe ++</a>
+          <a href="#">Nội vụ</a>
+          <a href="#">Công nghệ</a>
+          <a href="#">Nhân ái</a>
+          <a href="#" class="nav-icon-link" aria-label="Tất cả chuyên mục">
+            <span class="ui-icon grid-icon"></span>
+          </a>
+        </div>
+      </nav>
+
+      <main class="container main-content">
+        <section class="hero-news">
+          <aside class="hero-left">
+            <article class="stack-card flat-card">
+              <img
+                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80"
+                alt="Tin phụ 1"
+              />
+              <div class="card-copy">
+                <h3>Cụ bà Hà Nội mua 5 hộp đông ký nghỉ mát cả tỷ, nhắn tin van xin vì cạn tiền</h3>
+              </div>
+            </article>
+
+            <article class="stack-card flat-card">
+              <img
+                src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80"
+                alt="Tin phụ 2"
+              />
+              <div class="card-copy">
+                <h3>Thỏa thuận hòa bình Mỹ - Iran: Bước ngoặt với cục diện an ninh Trung Đông</h3>
+              </div>
+            </article>
+          </aside>
+
+          <section class="hero-center">
+            <article class="headline-card">
+              <img
+                src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=80"
+                alt="Tin nổi bật"
+              />
+              <div class="headline-copy">
+                <h1>Vụ giám thị gợi ý thí sinh để bạn xem bài: Hai bài thi vẫn được công nhận</h1>
+                <p>
+                  (Dân trí) - Đại diện Sở GD&amp;ĐT Quảng Ninh cho biết thí sinh được nhờ hỗ trợ không xem được bài
+                  bạn, không sửa đáp án theo gợi ý của giám thị. Vì vậy, bài thi của cả hai thí sinh vẫn được giữ nguyên kết quả.
+                </p>
+              </div>
+            </article>
+          </section>
+
+          <aside class="hero-right">
+            <div class="sidebar-block flat-sidebar">
+              <article class="mini-row">
+                <div>
+                  <h3>Thủ tướng Lê Minh Hưng lên đường tham dự Hội nghị Cấp cao kỷ niệm 35 năm quan hệ ASEAN - Nga</h3>
+                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+                  alt="Tin mới 1"
+                />
+              </article>
+
+              <article class="mini-row">
+                <div>
+                  <h3>Sắp xếp thôn phố, tinh gọn thứ 3 Việt Nam sẽ giảm 9.700 người hưởng lương</h3>
+                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=600&q=80"
+                  alt="Tin mới 2"
+                />
+              </article>
+
+              <article class="mini-row">
+                <div>
+                  <h3>Nghịch lý khó tin trong cơn địa chấn của tuyển Cape Verde trước Tây Ban Nha</h3>
+                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=600&q=80"
+                  alt="Tin mới 3"
+                />
+              </article>
+            </div>
+
+            <div class="sidebar-block focus-panel">
+              <div class="focus-chip">Tâm điểm</div>
+              <div class="focus-feature">
+                <div class="focus-copy">
+                  <h3>Từ "cánh đồng lớn" đến "cánh đồng có tổ chức"</h3>
+                  <div class="focus-meta">
+                    <span class="comment-icon"></span>
+                    <span>8</span>
+                  </div>
+                </div>
+                <div class="focus-person">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                    alt="Tác giả tâm điểm"
+                  />
+                  <span>Lê Minh Hoan</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="editor-grid">
+          <article class="editor-card">
+            <span class="editor-kicker">Dân trí 360</span>
+            <h2>Nhịp kể dài hơn, sâu hơn cho những chủ đề xã hội đang được quan tâm</h2>
+            <p>Mô phỏng vùng nội dung giàu chiều sâu và nhịp trình bày riêng, giống nhóm bài đặc biệt trên trang chủ.</p>
+          </article>
+          <article class="editor-card">
+            <span class="editor-kicker">Dmagazine</span>
+            <h2>Bản trình bày long-form ưu tiên hình ảnh lớn, typography đậm và khoảng thở rộng</h2>
+            <p>Khối này giúp homepage có thêm một tầng thị giác giống các cụm magazine của Dân trí.</p>
+          </article>
+          <article class="editor-card">
+            <span class="editor-kicker">Photo Story</span>
+            <h2>Ảnh kể chuyện theo chuỗi là một phần nhận diện quan trọng của giao diện báo điện tử hiện đại</h2>
+            <p>Tách biệt bằng nền màu, bo nhẹ và nhịp chữ ngắn gọn để dễ lướt trên desktop lẫn mobile.</p>
+          </article>
+        </section>
+
+        <section class="category-section">
+          <div class="section-heading">
+            <h2>Thời sự</h2>
+            <div class="section-tabs">
+              <a href="#">Chính trị</a>
+              <a href="#">Môi trường</a>
+              <a href="#">Giao thông</a>
+            </div>
+          </div>
+          <div class="section-grid">
+            <article class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&w=1200&q=80"
+                alt="Thời sự"
+              />
+              <h3>Thi công rầm rộ nút giao trọng điểm sau nhiều năm chờ mặt bằng sạch</h3>
+              <p>Công trường được tăng ca, nhiều mũi máy hoạt động đồng thời để đảm bảo mốc tiến độ.</p>
+            </article>
+            <div class="story-list">
+              <article>
+                <h3>Nhiều cơn bão có thể ảnh hưởng đất liền Việt Nam từ tháng 7 đến cuối năm</h3>
+                <p>Cơ quan khí tượng cảnh báo mùa mưa bão năm nay có thể xuất hiện thêm diễn biến cực đoan.</p>
+              </article>
+              <article>
+                <h3>Địa phương đề xuất giữ lại một số công trình cũ như ký ức đô thị</h3>
+                <p>Phương án chỉnh trang được yêu cầu cân bằng giữa phát triển mới và bảo tồn nhận diện kiến trúc.</p>
+              </article>
+              <article>
+                <h3>Hồ sơ số hóa đất đai giúp người dân tra cứu nhanh tiến độ giải quyết thủ tục</h3>
+                <p>Đây là một trong những nhóm cải cách thủ tục có tác động trực tiếp đến cư dân thành thị.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="category-section">
+          <div class="section-heading">
+            <h2>Kinh doanh</h2>
+            <div class="section-tabs">
+              <a href="#">Tài chính</a>
+              <a href="#">Chứng khoán</a>
+              <a href="#">Doanh nghiệp</a>
+            </div>
+          </div>
+          <div class="section-grid">
+            <article class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80"
+                alt="Kinh doanh"
+              />
+              <h3>Từ đô thị đến năng lượng, doanh nghiệp lớn tiếp tục mở rộng hiện diện tại Tây Nguyên</h3>
+              <p>Dòng vốn đổ vào hạ tầng và công nghiệp chế biến đang tạo thêm sức hút cho nhiều địa phương.</p>
+            </article>
+            <div class="story-list">
+              <article>
+                <h3>Giá mua vào vàng tăng nhanh hơn chiều bán ra, thị trường giằng co mạnh</h3>
+                <p>Nhà đầu tư nhỏ lẻ chuyển sang chiến lược phòng thủ khi biên độ dao động ngày càng lớn.</p>
+              </article>
+              <article>
+                <h3>Cổ phiếu công nghệ tăng tốc, vốn hóa nhiều tập đoàn tiến sát mốc kỷ lục</h3>
+                <p>Dòng tiền quốc tế có dấu hiệu quay lại nhóm tăng trưởng sau thời gian tập trung tài sản an toàn.</p>
+              </article>
+              <article>
+                <h3>Ngân hàng ngoại đưa ra dự báo mới về vùng đáy của giá vàng toàn cầu</h3>
+                <p>Nhận định này lập tức tác động đến kỳ vọng của cả nhà đầu tư cá nhân lẫn tổ chức.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="dual-section">
+          <section class="category-section compact-section">
+            <div class="section-heading">
+              <h2>World Cup 2026</h2>
+              <div class="section-tabs">
+                <a href="#">Tin tức</a>
+                <a href="#">Điểm nhấn</a>
+                <a href="#">Lịch thi đấu</a>
+              </div>
+            </div>
+            <article class="feature-card small-feature">
+              <img
+                src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80"
+                alt="World Cup"
+              />
+              <h3>Nền bóng đá nhỏ bé tạo cú sốc lớn trước đội đương kim vô địch</h3>
+              <p>Các đội tuyển châu Á và châu Phi đang mang đến nhiều biến số hấp dẫn cho giải đấu.</p>
+            </article>
+          </section>
+
+          <section class="category-section compact-section">
+            <div class="section-heading">
+              <h2>Giáo dục</h2>
+              <div class="section-tabs">
+                <a href="#">Góc phụ huynh</a>
+                <a href="#">Tuyển sinh</a>
+                <a href="#">Tra cứu điểm</a>
+              </div>
+            </div>
+            <article class="feature-card small-feature">
+              <img
+                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
+                alt="Giáo dục"
+              />
+              <h3>Vụ giám thị gợi ý thí sinh xem bài: Hai bài thi vẫn được công nhận</h3>
+              <p>Thông tin giáo dục luôn là một cụm nội dung có sức hút lớn và mật độ cập nhật cao trên trang chủ.</p>
+            </article>
+          </section>
+        </section>
+
+        <section class="media-band">
+          <div class="section-heading invert">
+            <h2>Media &amp; Long-form</h2>
+            <div class="section-tabs">
+              <a href="#">DNews</a>
+              <a href="#">Photo News</a>
+              <a href="#">Interactive</a>
+            </div>
+          </div>
+
+          <div class="media-grid">
+            <article class="media-lead">
+              <span class="pill">Photo Story</span>
+              <h3>Ngôi làng dưới lòng đất và cách kể chuyện bằng ảnh đang định hình lại trải nghiệm đọc</h3>
+              <p>Khối media giúp giao diện bớt một nhịp lặp, tạo cảm giác biên tập đa tầng như trang Dân trí thật.</p>
+            </article>
+            <article class="media-card">
+              <h3>Interactive: Khi dữ liệu trực quan trở thành một phần của câu chuyện</h3>
+              <p>Những cụm nội dung này nên có màu nền riêng để tạo nhịp thay đổi trên toàn trang.</p>
+            </article>
+            <article class="media-card">
+              <h3>Video: Tường thuật hiện trường, nhịp cắt ngắn và tiêu đề mạnh</h3>
+              <p>Đây là vùng phù hợp để đặt card media, reels, hoặc video nổi bật ở giai đoạn sau.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="upload-placeholder" aria-labelledby="upload-plan-title">
+          <div>
+            <span class="meta-tag">Placeholder theo plan</span>
+            <h2 id="upload-plan-title">Khung logic upload bài báo từ PDF / Word</h2>
+            <p>
+              Giao diện hiện tại chỉ dựng bằng HTML/CSS. Khung này được đặt sẵn để sau đó nối luồng quản trị:
+              chọn file `.pdf`, `.doc`, `.docx`, trích xuất tiêu đề, sapo, nội dung rồi đẩy vào các block bài viết.
+            </p>
+          </div>
+          <div class="upload-actions">
+            <button type="button">Chọn file bài báo</button>
+            <span>Chưa gắn xử lý thật</span>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a href="#" class="footer-wordmark">
+              <span class="brand-logo-text"><span>DANTRI</span></span>
+              <small>Clone giao diện HTML/CSS</small>
+            </a>
+            <p>
+              Giao diện mô phỏng phong cách trang chủ báo điện tử với mật độ nội dung cao, điều hướng rõ
+              ràng và các lớp trình bày giống tinh thần Dân trí.
+            </p>
+          </div>
+          <div>
+            <h3>Liên hệ tòa soạn</h3>
+            <p>Địa chỉ: 12 Trần Phú, Ba Đình, Hà Nội</p>
+            <p>Điện thoại: 024-3736-6491</p>
+            <p>Email: toasoan@example.vn</p>
+          </div>
+          <div>
+            <h3>Chuyên mục</h3>
+            <p>Thời sự</p>
+            <p>Kinh doanh</p>
+            <p>Thể thao</p>
+            <p>Giải trí</p>
+          </div>
+          <div>
+            <h3>Theo dõi</h3>
+            <p>Facebook</p>
+            <p>YouTube</p>
+            <p>TikTok</p>
+            <p>Telegram</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
