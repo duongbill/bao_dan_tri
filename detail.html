@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết bài viết - Dân trí clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell detail-page">
+      <header class="site-header">
+        <div class="container header-main">
+          <a href="index.html" class="brand-logo-text" aria-label="Dân trí">
+            <img src="./css/assets/logodantri.webp" alt="Logo Dân trí" />
+          </a>
+
+          <div class="header-center">
+            <div class="city-block">
+              <strong>Hà Nội</strong>
+              <span>Thứ 3, 16/06/2026</span>
+            </div>
+            <div class="weather-block">
+              <span class="weather-icon" aria-hidden="true">
+                <span class="cloud cloud-back"></span>
+                <span class="cloud cloud-front"></span>
+              </span>
+              <strong>28°C</strong>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <div class="quick-links quick-links-brands">
+              <a href="#" class="mini-brand fica-brand">
+                <img src="css/assets/icon/fica.jpg" alt="Fica" />
+                <span>Fica</span>
+              </a>
+              <a href="#" class="mini-brand dti-brand">
+                <img src="css/assets/icon/dti.svg" alt="DTiNews" />
+                <span>DTiNews</span>
+              </a>
+              <a href="#" class="mini-brand nvxh-brand">
+                <img src="css/assets/icon/N.svg" alt="Nội vụ và Xã hội" />
+                <span>Nội vụ &amp; Xã hội</span>
+              </a>
+            </div>
+            <div class="header-icons" aria-label="Tiện ích">
+              <a href="index.html" class="icon-link" aria-label="Trang chủ">
+                <span class="ui-icon home-icon"></span>
+                <span>Trang chủ</span>
+              </a>
+              <button type="button" class="icon-button" aria-label="Tìm kiếm">
+                <span class="ui-icon search-icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <nav class="main-nav">
+        <div class="container nav-scroll">
+          <a href="index.html" class="nav-icon-link" aria-label="Trang chủ">
+            <span class="ui-icon home-icon"></span>
+          </a>
+          <a href="#" class="dt360-link">DT360</a>
+          <a href="#" class="active">Mới nhất</a>
+          <a href="#">Thế giới</a>
+          <a href="#">Thời sự</a>
+          <a href="#">Pháp luật</a>
+          <a href="#">Sức khỏe</a>
+          <a href="#">Đời sống</a>
+          <a href="#">Du lịch</a>
+          <a href="#">Kinh doanh</a>
+          <a href="#">Thể thao</a>
+          <a href="#">Giải trí</a>
+          <a href="#">Giáo dục</a>
+        </div>
+      </nav>
+
+      <main class="container detail-main">
+        <div class="detail-layout">
+          <section class="detail-primary">
+            <div class="detail-breadcrumb">
+              <a href="index.html">Trang chủ</a>
+              <span>/</span>
+              <a href="#" id="articleCategory">Mới nhất</a>
+              <time id="articleTime">Thứ ba, 16/06/2026 - 16:02</time>
+            </div>
+
+            <header class="detail-header">
+              <h1 id="articleTitle">Bài viết mới nhất vừa được đăng</h1>
+              <div class="author-block">
+                <div class="author-profile">
+                  <div class="author-avatar">DT</div>
+                  <div>
+                    <strong id="authorName">Ban biên tập</strong>
+                    <p id="articleSource">Nguồn tổng hợp từ tòa soạn</p>
+                  </div>
+                </div>
+                <div class="audio-panel">
+                  <button type="button" class="audio-button">Nghe bài</button>
+                  <select aria-label="Chọn giọng đọc">
+                    <option>Giọng miền Bắc</option>
+                    <option>Giọng miền Nam</option>
+                    <option>Giọng miền Trung</option>
+                  </select>
+                </div>
+              </div>
+            </header>
+
+            <div class="detail-content-wrap">
+              <aside class="social-share-bar" aria-label="Tiện ích bài viết">
+                <button type="button">💬</button>
+                <button type="button">↗</button>
+                <button type="button">♡</button>
+                <button type="button">🖨</button>
+              </aside>
+
+              <article class="detail-article">
+                <p class="article-lead" id="articleLead">(Dân trí) - Nội dung sapo bài viết sẽ hiển thị ở đây.</p>
+
+                <figure class="article-figure" id="articleFigure" hidden>
+                  <img id="articleImage" src="" alt="Ảnh minh họa bài viết" />
+                  <figcaption id="articleCaption"></figcaption>
+                </figure>
+
+                <div class="article-content" id="articleBody"></div>
+              </article>
+            </div>
+
+            <section class="reaction-box">
+              <h2>Bài viết hay? Ấn để tương tác</h2>
+              <div class="reaction-list">
+                <button type="button">👍 Thích 124</button>
+                <button type="button">💚 Yêu thích 58</button>
+                <button type="button">⭐ Ngưỡng mộ 32</button>
+                <button type="button">👏 Hữu ích 76</button>
+              </div>
+            </section>
+
+            <section class="related-section">
+              <h2>Tin liên quan</h2>
+              <div class="related-list" id="relatedList"></div>
+            </section>
+
+            <section class="comment-section">
+              <div class="comment-heading">
+                <h2>Bình luận (<span id="commentCount">0</span>)</h2>
+              </div>
+              <div class="comment-form">
+                <textarea rows="5" placeholder="Chia sẻ ý kiến của bạn về bài viết này"></textarea>
+                <button type="button" class="admin-button primary">Gửi</button>
+              </div>
+              <div class="comment-list" id="commentList"></div>
+              <div class="tag-list" id="tagList"></div>
+            </section>
+
+            <p class="detail-status" id="detailStatus" hidden></p>
+          </section>
+
+          <aside class="detail-sidebar">
+            <div class="sidebar-heading">
+              <h2 id="mostReadTitle">ĐỌC NHIỀU TRONG MỚI NHẤT</h2>
+            </div>
+            <div class="most-read-list" id="mostReadList"></div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div class="footer-main">
+            <a href="index.html" class="footer-wordmark">
+              <span class="brand-logo-text"><img src="./css/assets/logodantri.webp" alt="Logo Dân trí" /></span>
+            </a>
+            <p>Cơ quan của Bộ Nội vụ</p>
+            <p>Tổng biên tập: Phạm Tuấn Anh</p>
+            <p>Giấy phép hoạt động báo điện tử Dân trí số 15/GP-BVHTTDL Hà Nội, ngày 14-4-2025</p>
+            <p>Địa chỉ tòa soạn: Số 48 ngõ 2 phố Giảng Võ, phường Giảng Võ, thành phố Hà Nội</p>
+            <p>Điện thoại: 024-3736-6491. Hotline HN: 0973-567-567</p>
+            <p>Văn phòng đại diện miền Nam: Số 51-53 Võ Văn Tần, phường Xuân Hòa, thành phố Hồ Chí Minh</p>
+            <p>Hotline TPHCM: 0974-567-567</p>
+            <p>Email: info@dantri.com.vn</p>
+            <p class="footer-copy">© 2005-2026 Bản quyền thuộc về Báo điện tử Dân trí. Cấm sao chép dưới mọi hình thức nếu không có sự chấp thuận bằng văn bản.</p>
+          </div>
+          <div class="footer-links">
+            <p><a href="#">RSS</a></p>
+            <p><a href="#">Liên hệ tòa soạn</a></p>
+            <p><a href="#">Liên hệ quảng cáo: 0945.54.03.03</a></p>
+            <p><a href="#">Email: quangcao@dantri.com.vn</a></p>
+            <p><a href="#">Chính sách bảo mật dữ liệu cá nhân</a></p>
+          </div>
+          <div class="footer-apps">
+            <h3>Đọc báo Dân trí trên mobile:</h3>
+            <div class="store-badges">
+              <a href="#" class="store-badge">App Store</a>
+              <a href="#" class="store-badge">Google Play</a>
+            </div>
+            <div class="social-block">
+              <span>Theo dõi Dân trí trên:</span>
+              <div class="social-links">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">▶</a>
+                <a href="#" class="social-icon">♪</a>
+                <a href="#" class="social-icon">↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/detail.js"></script>
+  </body>
+</html>

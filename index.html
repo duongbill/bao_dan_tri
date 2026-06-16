@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dan Tri Clone - HTML CSS Only</title>
+    <title>Dan Tri Clone - Admin Upload Demo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -17,12 +17,12 @@
       <header class="site-header">
         <div class="container header-main">
           <a href="#" class="brand-logo-text" aria-label="Dân trí">
-  <img src="./css/assets/logodantri.webp" alt="Logo Dân trí" style="height: 40px; object-fit: contain;">
-</a>
+            <img src="./css/assets/logodantri.webp" alt="Logo Dân trí" />
+          </a>
 
           <div class="header-center">
             <div class="city-block">
-              <strong>TP. Hồ Chí Minh</strong>
+              <strong>Hà Nội</strong>
               <span>Thứ 3, 16/06/2026</span>
             </div>
             <div class="weather-block">
@@ -30,30 +30,40 @@
                 <span class="cloud cloud-back"></span>
                 <span class="cloud cloud-front"></span>
               </span>
-              <strong>32°C</strong>
+              <strong>28°C</strong>
             </div>
           </div>
 
           <div class="header-actions">
             <div class="quick-links quick-links-brands">
               <a href="#" class="mini-brand fica-brand">
-                <img src="css/assets/icon/fica.jpg" alt="dti" >
+                <img src="css/assets/icon/fica.jpg" alt="Fica" />
                 <span>Fica</span>
               </a>
               <a href="#" class="mini-brand dti-brand">
-                 <img src="css/assets/icon/dti.svg" alt="dti" >
+                <img src="css/assets/icon/dti.svg" alt="DTiNews" />
                 <span>DTiNews</span>
               </a>
-                    <a href="#" class="mini-brand nvxh-brand">
-        <img src="css/assets/icon/N.svg" alt="Icon Nội vụ & Xã hội">
-        <span>Nội vụ &amp; Xã hội</span>
-      </a>  
+              <a href="#" class="mini-brand nvxh-brand">
+                <img src="css/assets/icon/N.svg" alt="Nội vụ và Xã hội" />
+                <span>Nội vụ &amp; Xã hội</span>
+              </a>
             </div>
             <div class="header-icons" aria-label="Tiện ích">
-              <a href="#" class="icon-link" aria-label="Đăng nhập">
+              <a href="#" class="icon-link dev-only" id="loginTrigger" aria-label="Đăng nhập">
                 <span class="ui-icon user-icon"></span>
                 <span>Đăng nhập</span>
               </a>
+              <div class="admin-toolbar admin-authenticated" id="adminToolbar" hidden>
+                <button type="button" class="admin-button primary admin-menu-trigger" id="adminMenuTrigger" aria-haspopup="true" aria-expanded="false">
+                  Quản trị
+                </button>
+                <div class="admin-dropdown" id="adminDropdown" hidden>
+                  <button type="button" class="admin-dropdown-item" id="openUploadModal">Đăng bài</button>
+                  <button type="button" class="admin-dropdown-item" id="openManageModal">Bài đã đăng</button>
+                  <button type="button" class="admin-dropdown-item danger" id="logoutTrigger">Đăng xuất</button>
+                </div>
+              </div>
               <button type="button" class="icon-button" aria-label="Tìm kiếm">
                 <span class="ui-icon search-icon"></span>
               </button>
@@ -82,7 +92,6 @@
           <a href="#">Giáo dục</a>
           <a href="#">Xe ++</a>
           <a href="#">Nội vụ</a>
-          <a href="#">Công nghệ</a>
           <a href="#">Nhân ái</a>
           <a href="#" class="nav-icon-link" aria-label="Tất cả chuyên mục">
             <span class="ui-icon grid-icon"></span>
@@ -99,7 +108,7 @@
                 alt="Tin phụ 1"
               />
               <div class="card-copy">
-                <h3>Cụ bà Hà Nội mua 5 hộp đông ký nghỉ mát cả tỷ, nhắn tin van xin vì cạn tiền</h3>
+                <h3>Cụ bà Hà Nội mua 5 hộp đồng kỳ nghỉ mát cả tỷ, nhắn tin van xin vì cạn tiền</h3>
               </div>
             </article>
 
@@ -115,17 +124,19 @@
           </aside>
 
           <section class="hero-center">
-            <article class="headline-card">
+            <article class="headline-card" id="headlineCard">
               <img
+                id="headlineImage"
                 src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=80"
                 alt="Tin nổi bật"
               />
               <div class="headline-copy">
-                <h1>Vụ giám thị gợi ý thí sinh để bạn xem bài: Hai bài thi vẫn được công nhận</h1>
-                <p>
-                  (Dân trí) - Đại diện Sở GD&amp;ĐT Quảng Ninh cho biết thí sinh được nhờ hỗ trợ không xem được bài
-                  bạn, không sửa đáp án theo gợi ý của giám thị. Vì vậy, bài thi của cả hai thí sinh vẫn được giữ nguyên kết quả.
+                <div class="headline-meta" id="headlineMeta">Bài nổi bật</div>
+                <h1 id="headlineTitle">Vụ giám thị gợi ý thí sinh để bạn xem bài: Hai bài thi vẫn được công nhận</h1>
+                <p id="headlineSummary">
+                  (Dân trí) - Đại diện Sở GD&amp;ĐT Quảng Ninh cho biết thí sinh được nhờ hỗ trợ không xem được bài bạn, không sửa đáp án theo gợi ý của giám thị. Vì vậy, bài thi của cả hai thí sinh vẫn được giữ nguyên kết quả.
                 </p>
+                <div class="headline-body" id="headlineBody" hidden></div>
               </div>
             </article>
           </section>
@@ -134,7 +145,7 @@
             <div class="sidebar-block flat-sidebar">
               <article class="mini-row">
                 <div>
-                  <h3>Thủ tướng Lê Minh Hưng lên đường tham dự Hội nghị Cấp cao kỷ niệm 35 năm quan hệ ASEAN - Nga</h3>
+                  <h3>Thủ tướng lên đường tham dự Hội nghị Cấp cao kỷ niệm 35 năm quan hệ ASEAN - Nga</h3>
                 </div>
                 <img
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
@@ -340,56 +351,128 @@
           </div>
         </section>
 
-        <section class="upload-placeholder" aria-labelledby="upload-plan-title">
-          <div>
-            <span class="meta-tag">Placeholder theo plan</span>
-            <h2 id="upload-plan-title">Khung logic upload bài báo từ PDF / Word</h2>
-            <p>
-              Giao diện hiện tại chỉ dựng bằng HTML/CSS. Khung này được đặt sẵn để sau đó nối luồng quản trị:
-              chọn file `.pdf`, `.doc`, `.docx`, trích xuất tiêu đề, sapo, nội dung rồi đẩy vào các block bài viết.
-            </p>
-          </div>
-          <div class="upload-actions">
-            <button type="button">Chọn file bài báo</button>
-            <span>Chưa gắn xử lý thật</span>
-          </div>
-        </section>
       </main>
 
       <footer class="site-footer">
         <div class="container footer-grid">
-          <div>
+          <div class="footer-main">
             <a href="#" class="footer-wordmark">
-              <span class="brand-logo-text"><span>DANTRI</span></span>
-              <small>Clone giao diện HTML/CSS</small>
+              <span class="brand-logo-text"><img src="./css/assets/logodantri.webp" alt="Logo Dân trí" /></span>
             </a>
-            <p>
-              Giao diện mô phỏng phong cách trang chủ báo điện tử với mật độ nội dung cao, điều hướng rõ
-              ràng và các lớp trình bày giống tinh thần Dân trí.
-            </p>
+            <p>Cơ quan của Bộ Nội vụ</p>
+            <p>Tổng biên tập: Phạm Tuấn Anh</p>
+            <p>Giấy phép hoạt động báo điện tử Dân trí số 15/GP-BVHTTDL Hà Nội, ngày 14-4-2025</p>
+            <p>Địa chỉ tòa soạn: Số 48 ngõ 2 phố Giảng Võ, phường Giảng Võ, thành phố Hà Nội</p>
+            <p>Điện thoại: 024-3736-6491. Hotline HN: 0973-567-567</p>
+            <p>Văn phòng đại diện miền Nam: Số 51-53 Võ Văn Tần, phường Xuân Hòa, thành phố Hồ Chí Minh</p>
+            <p>Hotline TPHCM: 0974-567-567</p>
+            <p>Email: info@dantri.com.vn</p>
+            <p class="footer-copy">© 2005-2026 Bản quyền thuộc về Báo điện tử Dân trí. Cấm sao chép dưới mọi hình thức nếu không có sự chấp thuận bằng văn bản.</p>
           </div>
-          <div>
-            <h3>Liên hệ tòa soạn</h3>
-            <p>Địa chỉ: 12 Trần Phú, Ba Đình, Hà Nội</p>
-            <p>Điện thoại: 024-3736-6491</p>
-            <p>Email: toasoan@example.vn</p>
+          <div class="footer-links">
+            <p><a href="#">RSS</a></p>
+            <p><a href="#">Liên hệ tòa soạn</a></p>
+            <p><a href="#">Liên hệ quảng cáo: 0945.54.03.03</a></p>
+            <p><a href="#">Email: quangcao@dantri.com.vn</a></p>
+            <p><a href="#">Chính sách bảo mật dữ liệu cá nhân</a></p>
           </div>
-          <div>
-            <h3>Chuyên mục</h3>
-            <p>Thời sự</p>
-            <p>Kinh doanh</p>
-            <p>Thể thao</p>
-            <p>Giải trí</p>
-          </div>
-          <div>
-            <h3>Theo dõi</h3>
-            <p>Facebook</p>
-            <p>YouTube</p>
-            <p>TikTok</p>
-            <p>Telegram</p>
+          <div class="footer-apps">
+            <h3>Đọc báo Dân trí trên mobile:</h3>
+            <div class="store-badges">
+              <a href="#" class="store-badge">App Store</a>
+              <a href="#" class="store-badge">Google Play</a>
+            </div>
+            <div class="social-block">
+              <span>Theo dõi Dân trí trên:</span>
+              <div class="social-links">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">▶</a>
+                <a href="#" class="social-icon">♪</a>
+                <a href="#" class="social-icon">↗</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
     </div>
+
+    <div class="modal" id="loginModal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+        <button type="button" class="modal-close" data-close-modal aria-label="Đóng">×</button>
+        <div class="auth-tabs" aria-label="Điều hướng tài khoản">
+          <button type="button" class="auth-tab active">Đăng nhập</button>
+          <button type="button" class="auth-tab" disabled>Đăng ký</button>
+        </div>
+        <form id="loginForm" class="modal-form">
+          <h2 id="loginModalTitle" class="auth-heading">Đăng nhập với Email</h2>
+          <label>
+            <span>Email</span>
+            <input type="text" name="username" value="admin" placeholder="Nhập Email" autocomplete="username" required />
+          </label>
+          <label>
+            <span>Mật khẩu</span>
+            <input type="password" name="password" value="admin" placeholder="Nhập mật khẩu" autocomplete="current-password" required />
+          </label>
+          <p class="form-status" id="loginStatus" aria-live="polite"></p>
+          <button type="submit" class="admin-button primary wide">Đăng nhập</button>
+          <button type="button" class="auth-link-button">Quên mật khẩu</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="uploadModal" hidden>
+      <div class="modal-backdrop" data-close-upload></div>
+      <div class="modal-panel upload-panel" role="dialog" aria-modal="true" aria-labelledby="uploadModalTitle">
+        <button type="button" class="modal-close" data-close-upload aria-label="Đóng">×</button>
+        <h2 id="uploadModalTitle">Đăng bài từ PDF / DOCX</h2>
+        <p class="modal-intro">Chọn file để hệ thống tự đọc nội dung, tự điền dữ liệu và cho bạn xem trước. Nếu dữ liệu đã đúng, bạn có thể lưu ngay mà không cần chỉnh tay.</p>
+        <form id="uploadForm" class="modal-form">
+          <label>
+            <span>Chọn file</span>
+            <input type="file" name="articleFile" accept=".pdf,.docx" required />
+          </label>
+          <label>
+            <span>Tiêu đề</span>
+            <input type="text" name="title" placeholder="Nhập tiêu đề hoặc để hệ thống tự rút ra" />
+          </label>
+          <label>
+            <span>Sapo</span>
+            <textarea name="summary" rows="3" placeholder="Tóm tắt ngắn cho bài viết"></textarea>
+          </label>
+          <label>
+            <span>Nội dung hiển thị</span>
+            <textarea name="content" rows="8" placeholder="Có thể để trống để dùng nội dung trích xuất từ file"></textarea>
+          </label>
+          <div class="upload-preview" id="uploadPreview" hidden>
+            <span class="meta-tag">Xem trước bài đăng</span>
+            <article class="preview-card">
+              <img id="previewImage" class="preview-image" src="" alt="Ảnh xem trước bài đăng" hidden />
+              <h3 id="previewTitle">Tiêu đề bài viết sẽ hiện ở đây</h3>
+              <p id="previewSummary">Sapo sau khi đọc file sẽ hiện ở đây.</p>
+              <div id="previewContent" class="preview-content"></div>
+            </article>
+          </div>
+          <p class="form-hint">Hỗ trợ `.pdf` và `.docx`. Hệ thống sẽ tự điền dữ liệu từ file; các ô bên dưới chỉ là tùy chọn để bạn sửa nếu muốn.</p>
+          <div class="upload-submit-bar">
+            <p class="form-status" id="uploadStatus" aria-live="polite"></p>
+            <button type="submit" class="admin-button primary">Lưu bài vào dự án</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="manageModal" hidden>
+      <div class="modal-backdrop" data-close-manage></div>
+      <div class="modal-panel upload-panel" role="dialog" aria-modal="true" aria-labelledby="manageModalTitle">
+        <button type="button" class="modal-close" data-close-manage aria-label="Đóng">×</button>
+        <h2 id="manageModalTitle">Bài đã đăng</h2>
+        <p class="modal-intro">Xóa một bài sẽ xóa luôn cả file gốc và dữ liệu bài viết trong dự án.</p>
+        <p class="form-status" id="manageStatus" aria-live="polite"></p>
+        <div class="manage-list" id="manageList"></div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
   </body>
 </html>
