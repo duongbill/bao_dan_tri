@@ -186,8 +186,14 @@
     els.articleCategory.textContent = category;
     els.articleTime.textContent = formatDate(article.createdAt);
     els.articleTitle.textContent = article.title || "Bài viết mới nhất";
-    els.authorName.textContent = article.author || "Ban biên tập";
-    els.articleSource.textContent = article.fileName ? `Nguồn file: ${article.fileName}` : "Nguồn tổng hợp từ tòa soạn";
+    els.authorName.textContent = "Huyền Nga";
+    if (els.articleSource) {
+      els.articleSource.style.display = "none";
+    }
+    const authorAvatar = document.getElementById("authorAvatar");
+    if (authorAvatar) {
+      authorAvatar.textContent = "HN";
+    }
     els.articleLead.textContent = lead.startsWith("(Dân trí)") ? lead : `(Dân trí) - ${lead}`;
     els.articleImage.src = article.image || fallbackImage;
     els.articleImage.alt = article.title || "Ảnh minh họa bài viết";
