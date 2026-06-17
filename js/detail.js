@@ -1,6 +1,7 @@
 (function () {
   const fallbackImage = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80";
   const els = {
+    currentDate: document.querySelector(".city-block span"),
     articleCategory: document.getElementById("articleCategory"),
     articleTime: document.getElementById("articleTime"),
     articleTitle: document.getElementById("articleTitle"),
@@ -20,6 +21,24 @@
     detailStatus: document.getElementById("detailStatus")
   };
 
+  function renderCurrentDate() {
+    if (!els.currentDate) return;
+    const now = new Date();
+    const weekdays = [
+      "Chá»§ nháº­t",
+      "Thá»© 2",
+      "Thá»© 3",
+      "Thá»© 4",
+      "Thá»© 5",
+      "Thá»© 6",
+      "Thá»© 7"
+    ];
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const year = now.getFullYear();
+    els.currentDate.textContent = `${weekdays[now.getDay()]}, ${day}/${month}/${year}`;
+  }
+
   const commentAuthors = [
     "Minh Anh",
     "Hoang Nguyen",
@@ -34,16 +53,16 @@
   ];
 
   const commentMessages = [
-    "Bài viết dễ đọc, phần thông tin chính khá rõ ràng.",
-    "Nếu có thêm vài hình ảnh trong bài thì trải nghiệm sẽ còn tốt hơn nữa.",
-    "Cách trình bày mạch lạc, đọc hết không bị mệt.",
-    "Tiêu đề và nội dung ăn khớp, cảm giác giống báo điện tử thật.",
-    "Đoạn mở đầu cuốn người đọc, nhất là phần sapo.",
-    "Mình thích kiểu bố cục này, nhìn gọn nhưng vẫn đủ thông tin.",
-    "Nếu cập nhật thêm bình luận thời gian thực nữa thì rất ổn.",
-    "Phần nội dung giữ được đúng tinh thần bài gốc là tốt rồi.",
-    "Xem trên điện thoại cũng nên mượt như bản desktop này.",
-    "Bản PDF gốc hiển thị ngay bên dưới là ý hay."
+    "Bài hát này nghe cuốn quá, giai điệu rất bắt tai và gây nghiện!",
+    "Visual của nhóm nhạc lần này đỉnh thật sự, không chê vào đâu được.",
+    "Giai điệu nhẹ nhàng da diết rất hợp để nghe lúc làm việc hay thư giãn.",
+    "Đoạn drop đỉnh quá, mình nghe đi nghe lại nãy giờ không chán.",
+    "MV đầu tư công phu quá, góc quay và màu phim đẹp lung linh.",
+    "Giọng vocal của bạn hát chính nghe xúc cảm và nội lực ghê.",
+    "Thích nhất đoạn rap ở giữa bài, flow cực kỳ mượt mà.",
+    "Bài này chắc chắn sẽ thành hit lớn thống trị các bảng xếp hạng cho xem!",
+    "Xem phần vũ đạo trong MV mà mê mẩn luôn, nhảy đều tăm tắp.",
+    "Hi vọng nhóm sẽ sớm ra mắt thêm nhiều sản phẩm âm nhạc chất lượng thế này."
   ];
 
   function formatDate(dateString) {
@@ -110,12 +129,31 @@
 
   function buildComments(article) {
     const random = createSeededRandom(article.id || article.title);
-    const desiredCount = 6 + Math.floor(random() * 5);
+    
+    // Helper to shuffle a copy of an array using the seeded random generator
+    function shuffle(array) {
+      const copy = [...array];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        const temp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = temp;
+      }
+      return copy;
+    }
+
+    const shuffledAuthors = shuffle(commentAuthors);
+    const shuffledMessages = shuffle(commentMessages);
+
+    // Limit desiredCount to the size of our pool to ensure uniqueness
+    const maxCount = Math.min(commentMessages.length, commentAuthors.length);
+    const desiredCount = Math.min(6 + Math.floor(random() * 5), maxCount);
+    
     const comments = [];
 
     for (let index = 0; index < desiredCount; index += 1) {
-      const author = commentAuthors[Math.floor(random() * commentAuthors.length)];
-      const message = commentMessages[Math.floor(random() * commentMessages.length)];
+      const author = shuffledAuthors[index];
+      const message = shuffledMessages[index];
       const minutesAgo = 8 + Math.floor(random() * 360);
       const likes = Math.floor(random() * 48);
       comments.push({
@@ -126,6 +164,9 @@
         likes
       });
     }
+
+    // Sort comments by minutesAgo ascending (oldest to newest) to look natural
+    comments.sort((a, b) => b.minutesAgo - a.minutesAgo);
 
     return comments;
   }
@@ -243,10 +284,33 @@
     }
   }
 
+  function initReactions() {
+    const reactionButtons = document.querySelectorAll(".reaction-btn");
+    reactionButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const countEl = btn.querySelector(".reaction-count");
+        if (!countEl) return;
+        let count = parseInt(countEl.textContent, 10) || 0;
+        
+        const isReacted = btn.classList.contains("active-reaction");
+        if (isReacted) {
+          count -= 1;
+          btn.classList.remove("active-reaction");
+        } else {
+          count += 1;
+          btn.classList.add("active-reaction");
+        }
+        countEl.textContent = count;
+      });
+    });
+  }
+
   async function init() {
     try {
+      renderCurrentDate();
       const [article, articles] = await Promise.all([loadLatestArticle(), loadArticles()]);
       renderArticle(article, articles);
+      initReactions();
     } catch (error) {
       els.detailStatus.hidden = false;
       els.detailStatus.textContent = error.message;

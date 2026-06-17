@@ -7,6 +7,8 @@
   };
 
   const els = {
+    currentDate: document.querySelector(".city-block span"),
+    headlineCard: document.getElementById("headlineCard"),
     loginTrigger: document.getElementById("loginTrigger"),
     logoutTrigger: document.getElementById("logoutTrigger"),
     openUploadModal: document.getElementById("openUploadModal"),
@@ -36,6 +38,24 @@
     previewSummary: document.getElementById("previewSummary"),
     previewContent: document.getElementById("previewContent")
   };
+
+  function renderCurrentDate() {
+    if (!els.currentDate) return;
+    const now = new Date();
+    const weekdays = [
+      "Chủ Nhật",
+      "Thứ 2",
+      "Thứ 3",
+      "Thứ 4",
+      "Thứ 5",
+      "Thứ 6",
+      "Thứ 7"
+    ];
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const year = now.getFullYear();
+    els.currentDate.textContent = `${weekdays[now.getDay()]}, ${day}/${month}/${year}`;
+  }
 
   function setStatus(node, message, type) {
     if (!node) return;
@@ -121,33 +141,21 @@
   }
 
   function bindLatestArticleLinks() {
-    const selectors = [
-      "main.main-content .stack-card",
-      "main.main-content .headline-card",
-      "main.main-content .mini-row",
-      "main.main-content .editor-card",
-      "main.main-content .feature-card",
-      "main.main-content .story-list article",
-      "main.main-content .media-lead",
-      "main.main-content .media-card",
-      "main.main-content .focus-feature"
-    ];
+    if (!els.headlineCard) return;
 
-    document.querySelectorAll(selectors.join(", ")).forEach((node) => {
-      node.classList.add("clickable-latest");
-      node.setAttribute("tabindex", "0");
-      node.setAttribute("role", "link");
+    els.headlineCard.classList.add("clickable-latest");
+    els.headlineCard.setAttribute("tabindex", "0");
+    els.headlineCard.setAttribute("role", "link");
 
-      node.addEventListener("click", (event) => {
-        if (event.target.closest("a, button, input, textarea, label")) return;
-        goToLatestArticle();
-      });
+    els.headlineCard.addEventListener("click", (event) => {
+      if (event.target.closest("a, button, input, textarea, label")) return;
+      goToLatestArticle();
+    });
 
-      node.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter" && event.key !== " ") return;
-        event.preventDefault();
-        goToLatestArticle();
-      });
+    els.headlineCard.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      goToLatestArticle();
     });
   }
 
@@ -516,6 +524,7 @@
   }
 
   async function init() {
+    renderCurrentDate();
     bindLatestArticleLinks();
     bindEvents();
     await loadLatestArticle();

@@ -1515,17 +1515,39 @@ body.dev-mode.admin-logged-in #loginTrigger {
 .social-share-bar {
   position: sticky;
   top: 100px;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
   align-self: flex-start;
+  background: var(--surface);
+  border: 1px solid #eef1f6;
+  border-radius: 30px;
+  padding: 16px 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: 52px;
 }
 
 .social-share-bar button {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   font-size: 1.05rem;
-  box-shadow: 0 12px 26px rgba(16, 33, 50, 0.08);
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: #555c66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.social-share-bar button:hover {
+  color: var(--brand);
+  background: #f4f7fa;
+  transform: scale(1.05);
 }
 
 .detail-article {
@@ -1597,15 +1619,66 @@ body.dev-mode.admin-logged-in #loginTrigger {
 }
 
 .reaction-list button {
-  padding: 11px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
   border-radius: 999px;
-  color: var(--headline);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  border: none;
+  background: #f0f2f5;
+  color: #1c1e21;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: none;
 }
 
 .reaction-list button:hover {
-  background: #e7eef4;
-  transform: translateY(-1px);
+  background: #e4e6eb;
+  transform: scale(1.05);
+}
+
+.reaction-list button:active {
+  transform: scale(0.95);
+}
+
+.reaction-list button.active-reaction {
+  background: #e7f3ff;
+  color: #1877f2;
+}
+
+.reaction-list button.active-reaction:hover {
+  background: #dbeaff;
+}
+
+.react-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.react-badge-like {
+  background: #1877f2;
+}
+
+.react-badge-love {
+  background: #f02849;
+}
+
+.react-emoji {
+  font-size: 1.2rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 22px;
 }
 
 .related-list,

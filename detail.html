@@ -115,10 +115,29 @@
 
             <div class="detail-content-wrap">
               <aside class="social-share-bar" aria-label="Tiện ích bài viết">
-                <button type="button">💬</button>
-                <button type="button">↗</button>
-                <button type="button">♡</button>
-                <button type="button">🖨</button>
+                <button type="button" aria-label="Bình luận">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+                <button type="button" aria-label="Chia sẻ">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 17l5-5-5-5"/>
+                    <path d="M4 18v-2a4 4 0 0 1 4-4h12"/>
+                  </svg>
+                </button>
+                <button type="button" aria-label="Lưu bài viết">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+                <button type="button" aria-label="In">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 6 2 18 2 18 9"/>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                    <rect x="6" y="14" width="12" height="8"/>
+                  </svg>
+                </button>
               </aside>
 
               <article class="detail-article">
@@ -136,10 +155,30 @@
             <section class="reaction-box">
               <h2>Bài viết hay? Ấn để tương tác</h2>
               <div class="reaction-list">
-                <button type="button">👍 Thích 124</button>
-                <button type="button">💚 Yêu thích 58</button>
-                <button type="button">⭐ Ngưỡng mộ 32</button>
-                <button type="button">👏 Hữu ích 76</button>
+                <button type="button" class="reaction-btn" data-reaction="like">
+                  <span class="react-badge react-badge-like">
+                    <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
+                      <path d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1zm20-8h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L15.17 5 9.58 10.59C9.22 10.95 9 11.45 9 12v7c0 1.1.9 2 2 2h7c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                  </span>
+                  <span class="reaction-count">124</span>
+                </button>
+                <button type="button" class="reaction-btn" data-reaction="love">
+                  <span class="react-badge react-badge-love">
+                    <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  </span>
+                  <span class="reaction-count">58</span>
+                </button>
+                <button type="button" class="reaction-btn" data-reaction="clap">
+                  <span class="react-emoji">👏</span>
+                  <span class="reaction-count">76</span>
+                </button>
+                <button type="button" class="reaction-btn" data-reaction="star">
+                  <span class="react-emoji">🌟</span>
+                  <span class="reaction-count">32</span>
+                </button>
               </div>
             </section>
 
@@ -186,7 +225,8 @@
             <p>Văn phòng đại diện miền Nam: Số 51-53 Võ Văn Tần, phường Xuân Hòa, thành phố Hồ Chí Minh</p>
             <p>Hotline TPHCM: 0974-567-567</p>
             <p>Email: info@dantri.com.vn</p>
-            <p class="footer-copy">© 2005-2026 Bản quyền thuộc về Báo điện tử Dân trí. Cấm sao chép dưới mọi hình thức nếu không có sự chấp thuận bằng văn bản.</p>
+            <p class="footer-copy">© 2005-2026 Bản quyền thuộc về Báo điện tử Dân trí.
+              Trang Web được sao chép nhằm mục đích học tập, phi lợi nhuận không mang tính chất thương mại.</p>
           </div>
           <div class="footer-links">
             <p><a href="#">RSS</a></p>
