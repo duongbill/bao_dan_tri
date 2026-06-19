@@ -130,6 +130,9 @@
     els.headlineMeta.textContent = article.fileName
       ? `Bài mới từ ${article.sourceType.toUpperCase()}`
       : "Bài nổi bật";
+    if (article.fileName) {
+      els.headlineMeta.textContent = "Từ Huyền Nga";
+    }
     els.headlineImage.src = article.image || "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80";
     els.headlineImage.alt = article.title || "Bài mới upload";
     els.headlineBody.hidden = true;
