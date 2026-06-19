@@ -1297,7 +1297,13 @@ body.dev-mode.admin-logged-in #loginTrigger {
 }
 
 .footer-copy {
-  margin-top: 8px !important;
+  grid-column: 1 / -1;
+  margin-top: 24px !important;
+  border-top: 1px solid #eef1f6;
+  padding-top: 20px;
+  color: var(--muted) !important;
+  font-size: 0.82rem !important;
+  line-height: 1.65 !important;
 }
 
 .footer-links {
