@@ -25,6 +25,29 @@ const defaultLatestArticle = {
   author: "system",
   image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=80"
 };
+const pinnedLatestArticle = {
+  id: "1781843136824-ban-nhac-haydayz-ke-ve-chuyen-tinh-thanh-xuan-trong-album-ky-su-thoi-gian",
+  title: "Ban nhạc Haydayz kể về chuyện tình thanh xuân trong album \"Ký sự thời gian\"",
+  summary: "(Dân trí) - Haydayz chính thức ra mắt album đầu tay \"Ký sự thời gian\", khắc họa những cung bậc cảm xúc của tình yêu và tuổi trẻ, đồng thời gửi gắm thông điệp sống hết mình để không để lại nuối tiếc.",
+  content: [
+    "Ngày 19/6, ban nhạc Haydayz đã tổ chức buổi gặp gỡ truyền thông tại Hà Nội để chính thức giới thiệu sản phẩm âm nhạc đầu tay mang tên \"Ký sự thời gian\". Đây là dự án tâm huyết, đánh dấu sự trưởng thành của nhóm sau chặng đường nỗ lực hoạt động kể từ khi thành lập vào tháng 5/2024.",
+    "Ban nhạc Haydayz tại buổi họp báo (Ảnh: Huyền Nguyễn)",
+    "Hướng đến khán giả trẻ từ 16-30 tuổi yêu thích dòng nhạc chữa lành, album \"Ký sự thời gian\" gồm 5 ca khúc: \"Biết đâu\", \"Cho em\", \"Năm ngón bàn tay\", \"Phép màu\" và \"Hẹn lần sau\". Toàn bộ album tựa như một cuốn nhật ký âm nhạc về mối tình thanh xuân dang dở, dẫn dắt người nghe đi qua trọn vẹn các cung bậc cảm xúc từ những rung động đầu đời trong trẻo đến lời hẹn ước lần sau.",
+    "Cuộc đời chúng ta khó tránh khỏi những tiếc nuối. Khác với nhiều tuyên ngôn chữa lành tập trung vào sự quên đi, \"Ký sự thời gian\" chọn cách cùng khán giả nhìn lại một tình yêu dang dở với nhân vật chính dường như dành cả đời để nhung nhớ một bóng hình. Na, thành viên của nhóm, cho biết tuy album kể về câu chuyện buồn nhưng thông điệp Haydayz muốn hướng đến vẫn là sự tích cực.",
+    "Đó là lời nhắn nhủ mỗi người hãy sống trọn vẹn với hiện tại, hết mình với đam mê và dũng cảm thực hiện những điều còn dang dở, để khi nhìn lại sẽ không còn phải nuối tiếc.",
+    "Điểm nhấn đặc biệt nhất của dự án nằm ở ý tưởng lấy cảm hứng từ thuyết \"Hồi quang phản chiếu\" - hiện tượng tâm lý khi não bộ dành ra 7 phút định mệnh cuối cùng để tua chậm lại những thước phim quan trọng nhất của cuộc đời. Dưới lăng kính này, mỗi bài hát đóng vai trò như một phân đoạn ký ức quay chậm, tái hiện câu chuyện tình yêu và thế giới nội tâm sâu sắc của chàng trai trong khoảnh khắc.",
+    "\"Ký sự thời gian\" được thể hiện qua tài năng của 5 thành viên: Aki (Vocalist, sáng tác chính), Haha (Trưởng nhóm, keyboardist), Hoa Hoa (Guitarist), Natra (Drummer) và Na (Bassist).",
+    "Aki trả lời câu hỏi của báo chí (Ảnh: Quỳnh Anh)",
+    "Là vocalist cũng như sáng tác chính của nhóm, Aki chia sẻ: \"Chúng tôi không cố gắng chạy theo các trào lưu sôi động của thị trường, mà chọn cách chạm vào lòng người bằng sự mộc mạc và chân thành nhất. Dù ở thế hệ nào, những nuối tiếc về một thời thanh xuân đã qua vẫn luôn là một phần ký ức đẹp đẽ mà mỗi khi nhìn lại, chúng ta đều có thể mỉm cười và bao dung với quá khứ.\""
+  ].join("\n\n"),
+  sourceType: "pdf",
+  fileName: "haydays.pdf",
+  createdAt: "2026-06-19T04:25:36.824Z",
+  author: "admin",
+  image: "uploads/1781843136827-haydays-cover.jpg",
+  inlineImage: "uploads/z7952899057289_1aff098373cf58bfdea1c263fff9d987.jpg",
+  storedFile: "uploads/1781843136824-haydays.pdf"
+};
 
 function sendJson(res, statusCode, payload) {
   const body = JSON.stringify(payload);
@@ -48,9 +71,7 @@ async function ensureDirectories() {
   await fsp.mkdir(dataDir, { recursive: true });
   await fsp.mkdir(uploadsDir, { recursive: true });
   await fsp.mkdir(articleArchiveDir, { recursive: true });
-  if (!fs.existsSync(latestArticlePath)) {
-    await fsp.writeFile(latestArticlePath, JSON.stringify(defaultLatestArticle, null, 2), "utf8");
-  }
+  await fsp.writeFile(latestArticlePath, JSON.stringify(pinnedLatestArticle, null, 2), "utf8");
 }
 
 function parseCookies(req) {
@@ -243,19 +264,33 @@ async function extractPdfFirstImageWithPython(filePath) {
     "sys.stdout.reconfigure(encoding='utf-8')",
     "from pypdf import PdfReader",
     "reader = PdfReader(sys.argv[1])",
-    "result = None",
-    "for page in reader.pages:",
+    "candidates = []",
+    "for page_index, page in enumerate(reader.pages):",
     "    images = getattr(page, 'images', [])",
     "    if not images:",
     "        continue",
-    "    image = images[0]",
-    "    name = getattr(image, 'name', 'image.bin')",
-    "    data = getattr(image, 'data', b'') or b''",
-    "    result = {",
-    "        'name': name,",
-    "        'base64': base64.b64encode(data).decode('ascii')",
-    "    }",
-    "    break",
+    "    for image_index, image in enumerate(images):",
+    "        name = getattr(image, 'name', 'image.bin')",
+    "        data = getattr(image, 'data', b'') or b''",
+    "        width = int(getattr(image, 'width', 0) or 0)",
+    "        height = int(getattr(image, 'height', 0) or 0)",
+    "        area = width * height",
+    "        candidates.append({",
+    "            'name': name,",
+    "            'base64': base64.b64encode(data).decode('ascii'),",
+    "            'page_index': page_index,",
+    "            'image_index': image_index,",
+    "            'width': width,",
+    "            'height': height,",
+    "            'area': area,",
+    "            'size': len(data)",
+    "        })",
+    "result = None",
+    "if candidates:",
+    "    meaningful = [item for item in candidates if item['area'] >= 120000 or item['size'] >= 50000]",
+    "    pool = meaningful or candidates",
+    "    pool.sort(key=lambda item: (item['area'], item['size'], -item['page_index'], -item['image_index']), reverse=True)",
+    "    result = pool[0]",
     "print(json.dumps(result, ensure_ascii=False))"
   ].join("\n");
 
@@ -390,7 +425,6 @@ async function saveArticleAssets({ fileName, buffer, article }) {
   delete articleToStore.imageAsset;
 
   await fsp.writeFile(archivedArticlePath, JSON.stringify(articleToStore, null, 2), "utf8");
-  await fsp.writeFile(latestArticlePath, JSON.stringify(articleToStore, null, 2), "utf8");
 
   return articleToStore;
 }
@@ -437,16 +471,16 @@ async function deleteStoredArticle(articleId) {
 
   await fsp.rm(articlePath, { force: true });
 
-  let currentLatest = defaultLatestArticle;
+  let currentLatest = pinnedLatestArticle;
   try {
     currentLatest = JSON.parse(await fsp.readFile(latestArticlePath, "utf8"));
   } catch (error) {
-    currentLatest = defaultLatestArticle;
+    currentLatest = pinnedLatestArticle;
   }
 
   if (currentLatest.id === articleId) {
     const remainingArticles = await readStoredArticles();
-    const nextLatest = remainingArticles[0] || defaultLatestArticle;
+    const nextLatest = remainingArticles[0] || pinnedLatestArticle;
     await fsp.writeFile(latestArticlePath, JSON.stringify(nextLatest, null, 2), "utf8");
     return { deleted: article, latest: nextLatest };
   }

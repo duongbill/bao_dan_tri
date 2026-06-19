@@ -1586,6 +1586,22 @@ body.dev-mode.admin-logged-in #loginTrigger {
   font-size: 0.9rem;
 }
 
+.article-figure-inline {
+  margin: 24px 0;
+}
+
+.article-figure-inline img {
+  width: 100%;
+  border-radius: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.article-figure-inline figcaption {
+  text-align: left;
+  font-size: 1rem;
+}
+
 .article-content {
   color: var(--text);
 }

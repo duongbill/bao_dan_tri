@@ -107,6 +107,43 @@
       .replace(/'/g, "&#39;");
   }
 
+  function renderArticleBody(article, bodyParagraphs) {
+    const firstCaption = "Ban nhạc Haydayz tại buổi họp báo (Ảnh: Huyền Nguyễn)";
+    const secondCaption = "Aki trả lời câu hỏi của báo chí (Ảnh: Quỳnh Anh)";
+    const firstCaptionIndex = bodyParagraphs.findIndex((paragraph) => paragraph.includes("Ban nhạc Haydayz tại buổi họp báo"));
+    const secondCaptionIndex = bodyParagraphs.findIndex((paragraph) => paragraph.includes("Aki trả lời câu hỏi của báo chí"));
+
+    if (article.fileName === "haydays.pdf" && (firstCaptionIndex > -1 || secondCaptionIndex > -1)) {
+      return bodyParagraphs
+        .map((paragraph, index) => {
+          if (index === firstCaptionIndex) {
+            return [
+              `<figure class="article-figure article-figure-inline">`,
+              `<img src="${escapeHtml(article.image || fallbackImage)}" alt="${escapeHtml(article.title || "Ảnh bài viết")}" />`,
+              `<figcaption>${escapeHtml(firstCaption)}</figcaption>`,
+              `</figure>`
+            ].join("");
+          }
+
+          if (index === secondCaptionIndex) {
+            return [
+              `<figure class="article-figure article-figure-inline">`,
+              `<img src="${escapeHtml(article.inlineImage || article.image || fallbackImage)}" alt="${escapeHtml(article.title || "Ảnh bài viết")}" />`,
+              `<figcaption>${escapeHtml(secondCaption)}</figcaption>`,
+              `</figure>`
+            ].join("");
+          }
+
+          return `<p>${escapeHtml(paragraph)}</p>`;
+        })
+        .join("");
+    }
+
+    return bodyParagraphs
+      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+      .join("");
+  }
+
   function createLatestLink() {
     const link = document.createElement("a");
     link.href = "detail.html";
@@ -198,10 +235,8 @@
     els.articleImage.src = article.image || fallbackImage;
     els.articleImage.alt = article.title || "Ảnh minh họa bài viết";
     els.articleCaption.textContent = `Ảnh minh họa cho bài viết "${article.title || "mới nhất"}".`;
-    els.articleFigure.hidden = false;
-    els.articleBody.innerHTML = bodyParagraphs
-      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-      .join("");
+    els.articleFigure.hidden = article.fileName === "haydays.pdf";
+    els.articleBody.innerHTML = renderArticleBody(article, bodyParagraphs);
     els.mostReadTitle.textContent = `ĐỌC NHIỀU TRONG ${category.toUpperCase()}`;
     els.commentCount.textContent = String(Math.max(commentCount, comments.length));
 
