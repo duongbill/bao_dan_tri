@@ -108,9 +108,9 @@
   }
 
   function renderArticleBody(article, bodyParagraphs) {
-    const firstCaption = "Ban nhạc Haydayz tại buổi họp báo (Ảnh: Huyền Nguyễn)";
+    const firstCaption = "Ban nhạc HAYDAYz tại buổi họp báo (Ảnh: Huyền Nguyễn)";
     const secondCaption = "Aki trả lời câu hỏi của báo chí (Ảnh: Quỳnh Anh)";
-    const firstCaptionIndex = bodyParagraphs.findIndex((paragraph) => paragraph.includes("Ban nhạc Haydayz tại buổi họp báo"));
+    const firstCaptionIndex = bodyParagraphs.findIndex((paragraph) => paragraph.includes("Ban nhạc HAYDAYz tại buổi họp báo"));
     const secondCaptionIndex = bodyParagraphs.findIndex((paragraph) => paragraph.includes("Aki trả lời câu hỏi của báo chí"));
 
     if (article.fileName === "haydays.pdf" && (firstCaptionIndex > -1 || secondCaptionIndex > -1)) {
