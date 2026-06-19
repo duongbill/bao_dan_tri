@@ -1563,10 +1563,10 @@ body.dev-mode.admin-logged-in #loginTrigger {
 
 .article-lead {
   margin: 0 0 22px;
-  color: var(--headline);
-  font-size: 1.05rem;
+  color: #222;
+  font-size: 1.125rem;
   line-height: 1.8;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .article-figure {
@@ -1608,7 +1608,7 @@ body.dev-mode.admin-logged-in #loginTrigger {
 
 .article-content p {
   margin: 0 0 15px;
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.9;
 }
 
